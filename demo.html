@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor Custom Shortcuts Demo</title>
+    <script src="//cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+</head>
+<body>
+    <h1>CKEditor Custom Shortcuts Demo</h1>
+    <p>Press <strong>Ctrl+S</strong> to simulate saving the document.</p>
+    <p>Press <strong>Ctrl+[</strong> to view available keyboard shortcuts (may take a moment to load and format).</p>
+
+    <textarea name="editor1" id="editor1" rows="10" cols="80">
+        This is some sample text.
+    </textarea>
+
+    <script>
+        // Dummy function for the Ctrl+S demo
+        function forceSaveDocument() {
+            console.log('Demo: forceSaveDocument() called!');
+            alert('Demo: Ctrl+S detected and forceSaveDocument() called!');
+        }
+
+        // Initialize CKEditor
+        CKEDITOR.replace('editor1', {
+            customConfig: 'config.js', // Load our config.js from the root
+            toolbar: [
+                { name: 'document', items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
+                { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+                { name: 'editing', items: [ 'Find', 'Replace', '-', 'SelectAll', '-', 'Scayt' ] },
+                { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'CopyFormatting', 'RemoveFormat' ] },
+                '/',
+                { name: 'paragraph', items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl', 'Language' ] },
+                { name: 'links', items: [ 'Link', 'Unlink', 'Anchor' ] },
+                { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe' ] },
+                '/',
+                { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+                { name: 'colors', items: [ 'TextColor', 'BGColor' ] },
+                { name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] }
+            ],
+            height: 300
+        });
+    </script>
+</body>
+</html>
